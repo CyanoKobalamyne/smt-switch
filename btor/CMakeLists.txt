@@ -29,7 +29,6 @@ if (SMT_SWITCH_LIB_TYPE STREQUAL STATIC)
     COMMAND
       mkdir smt-switch-btor && cd smt-switch-btor && ar -x "../$<TARGET_FILE_NAME:smt-switch-btor>" && cd ../ &&
       mkdir boolector && cd boolector && ar -x "${BTOR_HOME}/build/lib/libboolector.a" &&
-      ar -x "${BTOR_HOME}/deps/cadical/build/libcadical.a" &&
       ar -x "${BTOR_HOME}/deps/btor2tools/build/lib/libbtor2parser.a" && cd ../ &&
       ar -qc "$<TARGET_FILE_NAME:smt-switch-btor>" ./boolector/*.o ./smt-switch-btor/*.o &&
       # now clean up
